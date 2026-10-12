@@ -24,9 +24,8 @@ Output: false
 
 Constraints:
 
-`0 <= nums.length <= 10^5`
-
-`-10^9 <= nums[i] <= 10^9`
+- `0 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
 
 ## 2. Given two strings `s` and `t`, return `true` if the two strings are anagrams of each other, otherwise return `false`.
 
@@ -58,6 +57,45 @@ Output: true
 
 Constraints:
 
-`1 <= s.length, t.length <= 5 * 10^4`
+- `1 <= s.length, t.length <= 5 * 10^4`
+- `s and t consist of lowercase English letters.`
 
-`s and t consist of lowercase English letters.`
+## 3. Given an array of integers `nums` and an integer `target`, return the indices `i` and `j` such that `nums[i] + nums[j] == target` and `i != j`.
+
+You may assume that every input has exactly one pair of indices `i` and `j` that satisfy the condition.
+
+Return the answer with the smaller index first.
+
+Example 1:
+
+```
+Input: 
+nums = [3,4,5,6], target = 7
+
+Output: [0,1]
+```
+
+Explanation: `nums[0] + nums[1] == 7`, so we return `[0, 1]`.
+
+Example 2:
+
+```
+Input: nums = [4,5,6], target = 10
+
+Output: [0,2]
+```
+
+Example 3:
+
+```
+Input: nums = [5,5], target = 10
+
+Output: [0,1]
+```
+
+Constraints:
+
+- `2 <= nums.length <= 1000`
+- `-10,000,000 <= nums[i] <= 10,000,000`
+- `-10,000,000 <= target <= 10,000,000`
+- Only one valid answer exists.

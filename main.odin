@@ -1,8 +1,8 @@
 package main
 
-import "arrays_and_hashing"
+import "./arrays_and_hashing"
 import "core:fmt"
 
 main :: proc() {
-	fmt.printfln("Hello world!")
+	fmt.println("Hello world!")
 }
