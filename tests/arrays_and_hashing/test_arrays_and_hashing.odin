@@ -49,23 +49,36 @@ group_anagrams :: proc(t: ^testing.T) {
 		[]string{"close", "open", "bend"},
 	}
 
+	equal_groups :: proc(a: [][dynamic]string, b: [][]string) -> bool {
+		total, found := len(a), 0
+
+		if len(a) != len(b) do return false
+
+		for arr in a {
+			for arr2 in b {
+				if slice.equal(arr[:], arr2) {
+					found += 1
+					break
+				}
+			}
+		}
+
+		return total == found
+	}
+
 	testing.expect(t, equal_groups(output[:], expected_output))
 	testing.expect_value(t, equal_groups(output[:], wrong_output), false)
 }
 
-equal_groups :: proc(a: [][dynamic]string, b: [][]string) -> bool {
-	total, found := len(a), 0
+@(test)
+find_most_frequent_elements :: proc(t: ^testing.T) {
+	input := []int{1, 2, 2, 3, 3, 3}
+	frequency := 2
+	expected_output := []int{2, 3}
+	output := arrays_and_hashing.top_K_frequent_elements(input, frequency)
+	defer delete(output)
 
-	if len(a) != len(b) do return false
-
-	for arr in a {
-		for arr2 in b {
-			if slice.equal(arr[:], arr2) {
-				found += 1
-				break
-			}
-		}
-	}
-
-	return total == found
+	testing.expect_value(t, slice.contains(output[:], expected_output[0]), true)
+	testing.expect_value(t, slice.contains(output[:], expected_output[1]), true)
+	testing.expect_value(t, len(output) == frequency, true)
 }
