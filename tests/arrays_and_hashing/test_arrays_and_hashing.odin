@@ -82,3 +82,15 @@ find_most_frequent_elements :: proc(t: ^testing.T) {
 	testing.expect_value(t, slice.contains(output[:], expected_output[1]), true)
 	testing.expect_value(t, len(output) == frequency, true)
 }
+
+@(test)
+encode_decode :: proc(t: ^testing.T) {
+	input := []string{"Hello", "World"}
+	encoded_expected_output := "5#Hello5#World"
+	encoded := arrays_and_hashing.encode_and_decode_strings(input)
+	decoded := arrays_and_hashing.encode_and_decode_strings(encoded)
+	defer delete(decoded)
+
+	testing.expect_value(t, encoded, encoded_expected_output)
+	testing.expect_value(t, slice.equal(decoded[:], input), true)
+}
