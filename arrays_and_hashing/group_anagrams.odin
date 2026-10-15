@@ -2,7 +2,7 @@ package arrays_and_hashing
 
 import "core:fmt"
 
-// Time complexity: O(m * n) | Space complexity: O(n)
+// Time complexity: O(m * n) | Space complexity: O(m * n)
 group_anagrams :: proc(
 	strs: []string,
 	allocator := context.allocator,

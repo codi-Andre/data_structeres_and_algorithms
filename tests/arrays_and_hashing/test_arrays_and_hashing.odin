@@ -94,3 +94,12 @@ encode_decode :: proc(t: ^testing.T) {
 	testing.expect_value(t, encoded, encoded_expected_output)
 	testing.expect_value(t, slice.equal(decoded[:], input), true)
 }
+
+@(test)
+calc_product :: proc(t: ^testing.T) {
+	expected_output := []int{48, 24, 12, 8}
+	output := arrays_and_hashing.products_of_array_except_self([]int{1, 2, 4, 6})
+	defer delete(output)
+
+	testing.expect_value(t, slice.equal(output, expected_output), true)
+}

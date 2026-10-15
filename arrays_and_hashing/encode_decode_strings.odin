@@ -8,6 +8,7 @@ encode_and_decode_strings :: proc {
 	decode_strings,
 }
 
+// Time complexity: O(m + n) | Space complexity: O(m + n)
 encode_strings :: proc(strs: []string) -> (encoded: string) {
 	for str in strs {
 		encoded = fmt.tprintf("%v%v#%v", encoded, len(str), str)
@@ -15,6 +16,7 @@ encode_strings :: proc(strs: []string) -> (encoded: string) {
 	return
 }
 
+// Time complexity: O(m + n) | Space complexity: O(m + n)
 decode_strings :: proc(str: string, allocator := context.allocator) -> [dynamic]string {
 	decoded := make([dynamic]string, allocator)
 	l, r := 0, 0
