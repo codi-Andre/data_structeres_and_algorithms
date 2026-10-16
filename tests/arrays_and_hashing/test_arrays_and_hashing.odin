@@ -136,3 +136,17 @@ is_valid_sudoku :: proc(t: ^testing.T) {
 	testing.expect_value(t, output1, true)
 	testing.expect_value(t, output2, false)
 }
+
+@(test)
+longest_consecutive :: proc(t: ^testing.T) {
+	testing.expect_value(
+		t,
+		arrays_and_hashing.longest_consecutive_sequence([]int{2, 20, 4, 10, 3, 4, 5}),
+		4,
+	)
+	testing.expect_value(
+		t,
+		arrays_and_hashing.longest_consecutive_sequence([]int{0, 3, 2, 5, 4, 6, 1, 1}),
+		7,
+	)
+}
