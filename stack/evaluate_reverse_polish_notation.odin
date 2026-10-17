@@ -2,6 +2,7 @@ package stack
 
 import "core:strconv"
 
+// Time complexity: O(n) | Space complexity: O(n)
 evaluate_reverse_polish_notation :: proc(tokens: []string) -> int {
 	stack := make([dynamic]int)
 	defer delete(stack)

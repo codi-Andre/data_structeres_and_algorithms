@@ -1,5 +1,6 @@
 package stack
 
+// Time complexity: O(1) | Space complexity: O(n)
 Min_Stack :: struct {
 	data: [dynamic]int,
 	min:  int,
