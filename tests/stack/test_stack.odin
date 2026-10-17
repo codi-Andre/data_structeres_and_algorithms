@@ -26,3 +26,17 @@ min_stack :: proc(t: ^testing.T) {
 	testing.expect_value(t, stack.top(&s), 2)
 	testing.expect_value(t, stack.get_min(&s), 1)
 }
+
+@(test)
+reverse_polish_notation :: proc(t: ^testing.T) {
+	testing.expect_value(
+		t,
+		stack.evaluate_reverse_polish_notation([]string{"1", "2", "+", "3", "*", "4", "-"}),
+		5,
+	)
+	testing.expect_value(
+		t,
+		stack.evaluate_reverse_polish_notation([]string{"4", "13", "5", "/", "+"}),
+		6,
+	)
+}
