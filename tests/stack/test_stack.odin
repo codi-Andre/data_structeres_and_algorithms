@@ -61,3 +61,9 @@ number_of_car_fleet :: proc(t: ^testing.T) {
 	testing.expect_value(t, stack.car_fleet(10, []int{1, 4}, []int{3, 2}), 1)
 	testing.expect_value(t, stack.car_fleet(10, []int{4, 1, 0, 7}, []int{2, 2, 1, 1}), 3)
 }
+
+@(test)
+largest_rectangle :: proc(t: ^testing.T) {
+	testing.expect_value(t, stack.largest_rectangle_in_histogram([]int{7, 1, 7, 2, 2, 4}), 8)
+	testing.expect_value(t, stack.largest_rectangle_in_histogram([]int{1, 3, 7}), 7)
+}

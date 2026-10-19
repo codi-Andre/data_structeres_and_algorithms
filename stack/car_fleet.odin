@@ -2,6 +2,7 @@ package stack
 
 import "core:slice"
 
+// Time complexity: O(n log n) | Space complexity: O(n)
 car_fleet :: proc(target: int, position, speed: []int) -> int {
 	stack, cars, position := make([dynamic]f64), make([dynamic]int, len(position)), position[:]
 	defer delete(stack)
