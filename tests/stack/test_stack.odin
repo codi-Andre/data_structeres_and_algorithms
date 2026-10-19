@@ -44,7 +44,6 @@ reverse_polish_notation :: proc(t: ^testing.T) {
 }
 
 @(test)
-
 check_daily_temperatures :: proc(t: ^testing.T) {
 	expected_output1 := []int{1, 4, 1, 2, 1, 0, 0}
 	expected_output2 := []int{0, 0, 0}
@@ -55,4 +54,10 @@ check_daily_temperatures :: proc(t: ^testing.T) {
 
 	testing.expect_value(t, slice.equal(output1[:], expected_output1), true)
 	testing.expect_value(t, slice.equal(output2[:], expected_output2), true)
+}
+
+@(test)
+number_of_car_fleet :: proc(t: ^testing.T) {
+	testing.expect_value(t, stack.car_fleet(10, []int{1, 4}, []int{3, 2}), 1)
+	testing.expect_value(t, stack.car_fleet(10, []int{4, 1, 0, 7}, []int{2, 2, 1, 1}), 3)
 }
