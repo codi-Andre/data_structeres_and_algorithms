@@ -62,3 +62,17 @@ calc_container_with_most_water :: proc(t: ^testing.T) {
 	)
 	testing.expect_value(t, two_pointers.container_with_most_water([]int{2, 2, 2}), 4)
 }
+
+@(test)
+calc_trapping_rain_water :: proc(t: ^testing.T) {
+	testing.expect_value(
+		t,
+		two_pointers.trapping_rain_water([]int{0, 2, 0, 3, 1, 0, 1, 3, 2, 1}),
+		9,
+	)
+	testing.expect_value(
+		t,
+		two_pointers.trapping_rain_water([]int{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}),
+		6,
+	)
+}
