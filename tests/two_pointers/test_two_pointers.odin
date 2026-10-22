@@ -52,3 +52,13 @@ check_three_sum :: proc(t: ^testing.T) {
 	testing.expect_value(t, compare_triplets(expected_output3, output3[:]), true)
 	testing.expect_value(t, compare_triplets(expected_output4, output4[:]), true)
 }
+
+@(test)
+calc_container_with_most_water :: proc(t: ^testing.T) {
+	testing.expect_value(
+		t,
+		two_pointers.container_with_most_water([]int{1, 7, 2, 5, 4, 7, 3, 6}),
+		36,
+	)
+	testing.expect_value(t, two_pointers.container_with_most_water([]int{2, 2, 2}), 4)
+}
