@@ -6,6 +6,7 @@ import "core:fmt"
 group_anagrams :: proc(
 	strs: []string,
 	allocator := context.allocator,
+	loc := #caller_location,
 ) -> [dynamic][dynamic]string {
 	anagrams, count := make(map[string][dynamic]string), [26]int{}
 	defer delete(anagrams)
@@ -16,7 +17,7 @@ group_anagrams :: proc(
 		}
 		hash := fmt.tprint(count)
 
-		if hash not_in anagrams do anagrams[hash] = make([dynamic]string, allocator)
+		if hash not_in anagrams do anagrams[hash] = make([dynamic]string, allocator, loc)
 
 		group := anagrams[hash]
 		append(&group, str)
@@ -24,7 +25,7 @@ group_anagrams :: proc(
 		count = {}
 	}
 
-	groups := make([dynamic][dynamic]string, allocator)
+	groups := make([dynamic][dynamic]string, allocator, loc)
 	for _, group in anagrams {
 		append(&groups, group)
 	}

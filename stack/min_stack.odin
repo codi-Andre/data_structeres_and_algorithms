@@ -6,8 +6,8 @@ Min_Stack :: struct {
 	min:  int,
 }
 
-init :: proc(s: ^Min_Stack, allocator := context.allocator) {
-	s.data = make([dynamic]int, allocator)
+init :: proc(s: ^Min_Stack, allocator := context.allocator, loc := #caller_location) {
+	s.data = make([dynamic]int, allocator, loc)
 	s.min = max(int)
 }
 

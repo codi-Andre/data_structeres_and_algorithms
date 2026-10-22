@@ -17,8 +17,12 @@ encode_strings :: proc(strs: []string) -> (encoded: string) {
 }
 
 // Time complexity: O(m + n) | Space complexity: O(m + n)
-decode_strings :: proc(str: string, allocator := context.allocator) -> [dynamic]string {
-	decoded := make([dynamic]string, allocator)
+decode_strings :: proc(
+	str: string,
+	allocator := context.allocator,
+	loc := #caller_location,
+) -> [dynamic]string {
+	decoded := make([dynamic]string, allocator, loc)
 	l, r := 0, 0
 
 	for l < len(str) {

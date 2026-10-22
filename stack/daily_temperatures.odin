@@ -1,8 +1,12 @@
 package stack
 
 // Time complexity: O(n) | Space complexity: O(n)
-daily_temperatures :: proc(temperatures: []int, allocator := context.allocator) -> [dynamic]int {
-	stack, result := make([dynamic]int), make([dynamic]int, len(temperatures), allocator)
+daily_temperatures :: proc(
+	temperatures: []int,
+	allocator := context.allocator,
+	loc := #caller_location,
+) -> [dynamic]int {
+	stack, result := make([dynamic]int), make([dynamic]int, len(temperatures), allocator, loc)
 	defer delete(stack)
 
 	for curr_temp, day in temperatures {

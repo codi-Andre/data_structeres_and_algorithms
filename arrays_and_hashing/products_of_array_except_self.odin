@@ -1,9 +1,13 @@
 package arrays_and_hashing
 
 // Time complexity: O(n) | Space complexity: O(n)
-products_of_array_except_self :: proc(nums: []int, allocator := context.allocator) -> []int {
+products_of_array_except_self :: proc(
+	nums: []int,
+	allocator := context.allocator,
+	loc := #caller_location,
+) -> []int {
 	size, prefix := len(nums), 1
-	product := make([]int, size, allocator)
+	product := make([]int, size, allocator, loc)
 
 	for &num, i in product {
 		num = prefix
