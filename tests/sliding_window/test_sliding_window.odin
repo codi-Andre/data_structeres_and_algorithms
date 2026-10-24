@@ -31,3 +31,15 @@ find_longest_substring_without_repeating_characters :: proc(t: ^testing.T) {
 	)
 	testing.expect_value(t, sliding_window.longest_substring_without_repeating_characters(" "), 1)
 }
+
+@(test)
+find_longest_repeating_character_replacement :: proc(t: ^testing.T) {
+	testing.expect_value(t, sliding_window.longest_repeating_character_replacement("XYYX", 2), 4)
+	testing.expect_value(
+		t,
+		sliding_window.longest_repeating_character_replacement("AAABABB", 1),
+		5,
+	)
+	testing.expect_value(t, sliding_window.longest_repeating_character_replacement("AAAA", 2), 4)
+	testing.expect_value(t, sliding_window.longest_repeating_character_replacement("AABA", 0), 2)
+}
