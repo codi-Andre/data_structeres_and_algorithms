@@ -1,5 +1,6 @@
 package sliding_window
 
+// Time complexity: O(n) | Space complexity: O(m)
 longest_repeating_character_replacement :: proc(s: string, k: int) -> int {
 	set, l, r, most_freq := make(map[u8]int), 0, 0, 0
 	defer delete(set)

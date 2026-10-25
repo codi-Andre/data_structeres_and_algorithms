@@ -43,3 +43,10 @@ find_longest_repeating_character_replacement :: proc(t: ^testing.T) {
 	testing.expect_value(t, sliding_window.longest_repeating_character_replacement("AAAA", 2), 4)
 	testing.expect_value(t, sliding_window.longest_repeating_character_replacement("AABA", 0), 2)
 }
+
+@(test)
+check_permutation_in_string :: proc(t: ^testing.T) {
+	testing.expect_value(t, sliding_window.permutation_in_string("ab", "lecabee"), true)
+	testing.expect_value(t, sliding_window.permutation_in_string("abc", "lecaabee"), false)
+	testing.expect_value(t, sliding_window.permutation_in_string("ab", "eidboaoo"), false)
+}
