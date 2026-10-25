@@ -59,3 +59,12 @@ find_minimum_window_substring :: proc(t: ^testing.T) {
 	testing.expect_value(t, sliding_window.minimum_window_substring("xyz", "xyz"), "xyz")
 	testing.expect_value(t, sliding_window.minimum_window_substring("x", "xy"), "")
 }
+
+@(test)
+find_sliding_window_maximum :: proc(t: ^testing.T) {
+	expected_output := []int{2, 2, 4, 4, 6}
+	output := sliding_window.sliding_window_maximum([]int{1, 2, 1, 0, 4, 2, 6}, 3)
+	defer delete(output)
+
+	testing.expect_value(t, slice.equal(expected_output, output[:]), true)
+}
