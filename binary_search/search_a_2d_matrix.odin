@@ -1,5 +1,6 @@
 package binary_search
 
+// Time complexity: O(log(m * n)) | Space complexity: O(1)
 search_a_2d_matrix :: proc(nums: [][]int, target: int) -> bool {
 	cols, rows := len(nums[0]), len(nums)
 	l, r := 0, cols * rows - 1

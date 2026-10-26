@@ -29,3 +29,9 @@ check_search_a_2d_matrix :: proc(t: ^testing.T) {
 	)
 	testing.expect_value(t, binary_search.search_a_2d_matrix([][]int{{1}}, 1), true)
 }
+
+@(test)
+check_koko_eating_bananas :: proc(t: ^testing.T) {
+	testing.expect_value(t, binary_search.koko_eating_bananas([]int{1, 4, 3, 2}, 9), 2)
+	testing.expect_value(t, binary_search.koko_eating_bananas([]int{25, 10, 23, 4}, 4), 25)
+}
