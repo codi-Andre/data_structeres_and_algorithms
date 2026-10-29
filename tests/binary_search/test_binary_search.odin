@@ -35,3 +35,22 @@ check_koko_eating_bananas :: proc(t: ^testing.T) {
 	testing.expect_value(t, binary_search.koko_eating_bananas([]int{1, 4, 3, 2}, 9), 2)
 	testing.expect_value(t, binary_search.koko_eating_bananas([]int{25, 10, 23, 4}, 4), 25)
 }
+
+@(test)
+check_find_minimum_in_rotated_sorted_array :: proc(t: ^testing.T) {
+	testing.expect_value(
+		t,
+		binary_search.find_minimum_in_rotated_sorted_array([]int{3, 4, 5, 6, 1, 2}),
+		1,
+	)
+	testing.expect_value(
+		t,
+		binary_search.find_minimum_in_rotated_sorted_array([]int{4, 5, 0, 1, 2, 3}),
+		0,
+	)
+	testing.expect_value(
+		t,
+		binary_search.find_minimum_in_rotated_sorted_array([]int{4, 5, 6, 7}),
+		4,
+	)
+}
