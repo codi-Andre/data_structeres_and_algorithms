@@ -13,8 +13,10 @@ valid_parenthesis :: proc(s: string) -> bool {
 		']' = '[',
 		'}' = '{',
 	}
-	defer queue.destroy(&stack)
-	defer delete(pairs)
+	defer {
+		queue.destroy(&stack)
+		delete(pairs)
+	}
 
 	for char in s {
 		if char not_in pairs {

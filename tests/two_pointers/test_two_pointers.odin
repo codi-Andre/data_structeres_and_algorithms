@@ -29,10 +29,12 @@ check_three_sum :: proc(t: ^testing.T) {
 	output3 := two_pointers.three_sum([]int{0, 0, 0})
 	output4 := two_pointers.three_sum([]int{-2, 0, 0, 2, 2})
 
-	defer delete(output1)
-	defer delete(output2)
-	defer delete(output3)
-	defer delete(output4)
+	defer {
+		delete(output1)
+		delete(output2)
+		delete(output3)
+		delete(output4)
+	}
 
 	log.warn(output2[:], expected_output2)
 

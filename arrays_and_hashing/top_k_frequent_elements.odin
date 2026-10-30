@@ -9,10 +9,12 @@ top_K_frequent_elements :: proc(
 ) -> [dynamic]int {
 	top_k := make([dynamic]int, allocator, loc)
 	count, buckets := make(map[int]int), make([][dynamic]int, len(nums) + 1)
-	defer delete(count)
-	defer delete(buckets)
-	defer for bucket in buckets {
-		delete(bucket)
+	defer {
+		for bucket in buckets {
+			delete(bucket)
+		}
+		delete(buckets)
+		delete(count)
 	}
 
 	for num in nums {

@@ -5,8 +5,10 @@ minimum_window_substring :: proc(s, t: string) -> string {
 	if len(s) < len(t) do return ""
 
 	s_count, t_count := make(map[u8]int), make(map[u8]int)
-	defer delete(s_count)
-	defer delete(t_count)
+	defer {
+		delete(s_count)
+		delete(t_count)
+	}
 
 	for i in 0 ..< len(t) {
 		t_count[t[i]] += 1

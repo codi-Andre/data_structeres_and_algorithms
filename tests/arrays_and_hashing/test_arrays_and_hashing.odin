@@ -33,10 +33,12 @@ group_anagrams :: proc(t: ^testing.T) {
 	output := arrays_and_hashing.group_anagrams(
 		[]string{"act", "pots", "tops", "cat", "stop", "hat"},
 	)
-	defer for arr in output {
-		delete(arr)
+	defer {
+		for arr in output {
+			delete(arr)
+		}
+		delete(output)
 	}
-	defer delete(output)
 
 	expected_output := [][]string {
 		[]string{"hat"},
